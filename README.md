@@ -21,12 +21,6 @@ uv run python app.py     # http://127.0.0.1:5000
 
 Usuario de prueba: `demo` / `demo123`
 
-La clave de sesión se lee de la variable de entorno `SECRET_KEY` (si no existe, usa una de desarrollo):
-
-```bash
-SECRET_KEY="una-clave-larga-y-secreta" uv run python app.py
-```
-
 ## Rutas
 
 | Ruta | Qué hace |

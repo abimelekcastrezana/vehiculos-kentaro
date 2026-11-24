@@ -1,13 +1,10 @@
-import os
-
 from flask import Flask
 
 import db
 from modules import auth, usuarios, vehiculos
 
 app = Flask(__name__)
-# Clave para firmar la sesión. En producción define la variable SECRET_KEY.
-app.secret_key = os.environ.get("SECRET_KEY", "clave-solo-para-desarrollo")
+app.secret_key = "contrasena" 
 
 db.init_app(app)
 app.register_blueprint(auth.bp)
