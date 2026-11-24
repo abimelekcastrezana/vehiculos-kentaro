@@ -34,3 +34,7 @@ Usuario de prueba: `demo` / `demo123`
 | `GET /usuarios` | listado de usuarios (requiere sesión) |
 | `GET/POST /usuarios/<id>/editar` | editar nombre y/o contraseña (requiere sesión) |
 | `POST /usuarios/<id>/eliminar` | eliminar usuario (requiere sesión) |
+
+## Licencia
+
+MIT. Ver [LICENSE](LICENSE).
