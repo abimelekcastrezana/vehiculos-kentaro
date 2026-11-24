@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Editar vehículo</h1>
+<p class="lote-actual">Lote actual: <b>{{ vehiculo.lote }}</b></p>
+<form method="post">
+  {% include "_campos.html" %}
+  <button>Guardar cambios</button>
+  <a href="{{ url_for('vehiculos.detalle', vehiculo_id=vehiculo.id) }}">Cancelar</a>
+</form>
+{% endblock %}

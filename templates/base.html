@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Vehículos{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('vehiculos.listado') }}">Vehículos</a>
+    {% if session.usuario_id %}
+      <a href="{{ url_for('vehiculos.nuevo') }}">Publicar</a>
+      <a href="{{ url_for('usuarios.listado') }}">Usuarios</a>
+      <a href="{{ url_for('auth.logout') }}">Salir</a>
+    {% else %}
+      <a href="{{ url_for('auth.login') }}">Entrar</a>
+      <a href="{{ url_for('usuarios.registro') }}">Registrarse</a>
+    {% endif %}
+  </nav>
+
+  <main>
+    {# Mensajes de éxito y error #}
+    {% for categoria, mensaje in get_flashed_messages(with_categories=true) %}
+      <p class="mensaje {{ categoria }}">{{ mensaje }}</p>
+    {% endfor %}
+
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Usuarios</h1>
+
+{% for usuario in usuarios %}
+  <article class="tarjeta">
+    <b>{{ usuario.nombre }}</b>
+    <a href="{{ url_for('usuarios.editar', usuario_id=usuario.id) }}">Editar</a>
+    <form method="post" action="{{ url_for('usuarios.eliminar', usuario_id=usuario.id) }}"
+          onsubmit="return confirm('¿Eliminar este usuario?')">
+      <button class="peligro">Eliminar</button>
+    </form>
+  </article>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Vehículos</h1>
+
+{% for vehiculo in vehiculos %}
+  <article class="tarjeta">
+    {% include "_imagen.html" %}
+    <h2><a href="{{ url_for('vehiculos.detalle', vehiculo_id=vehiculo.id) }}">{{ vehiculo.marca }} {{ vehiculo.modelo }} {{ vehiculo.anio }}</a></h2>
+    <p>${{ "%.2f"|format(vehiculo.precio) }} · {{ vehiculo.tipo }} · {{ vehiculo.lote }}</p>
+  </article>
+{% else %}
+  <p>Aún no hay vehículos publicados.</p>
+{% endfor %}
+{% endblock %}

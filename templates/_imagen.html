@@ -1,0 +1,6 @@
+{# Muestra la imagen o un marcador si el vehículo no tiene #}
+{% if vehiculo.imagen_url %}
+  <img src="{{ vehiculo.imagen_url }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}">
+{% else %}
+  <div class="sin-imagen">Sin imagen</div>
+{% endif %}

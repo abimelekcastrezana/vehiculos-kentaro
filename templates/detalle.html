@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>{{ vehiculo.marca }} {{ vehiculo.modelo }} {{ vehiculo.anio }}</h1>
+{% include "_imagen.html" %}
+
+<p><b>Precio:</b> ${{ "%.2f"|format(vehiculo.precio) }}</p>
+<p><b>Tipo:</b> {{ vehiculo.tipo }}</p>
+<p><b>Lote:</b> {{ vehiculo.lote }}</p>
+<p>{{ vehiculo.descripcion }}</p>
+
+{% if session.usuario_id %}
+  <a href="{{ url_for('vehiculos.editar', vehiculo_id=vehiculo.id) }}">Editar</a>
+  <form method="post" action="{{ url_for('vehiculos.eliminar', vehiculo_id=vehiculo.id) }}"
+        onsubmit="return confirm('¿Eliminar este vehículo?')">
+    <button class="peligro">Eliminar</button>
+  </form>
+{% endif %}
+{% endblock %}

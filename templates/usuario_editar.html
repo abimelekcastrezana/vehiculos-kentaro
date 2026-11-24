@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Editar usuario</h1>
+<form method="post">
+  <label>Usuario <input name="nombre" value="{{ request.form.nombre or usuario.nombre }}" required></label>
+  <label>Nueva contraseña (déjala vacía para no cambiarla) <input name="password" type="password" minlength="4"></label>
+  <button>Guardar cambios</button>
+  <a href="{{ url_for('usuarios.listado') }}">Cancelar</a>
+</form>
+{% endblock %}
